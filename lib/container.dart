@@ -42,12 +42,13 @@ class _ContainerrState extends State<Containerr> {
             style: TextStyle(
                 fontSize: 50,
                 color: Colors.white,
+                
                 fontStyle: FontStyle.italic,
                 letterSpacing: 5,
                 shadows: [
                   Shadow(
                       color: Colors.black, blurRadius: 5, offset: Offset(3, 2))
-                ]),
+                ]), 
           ),
         ),
       )),
