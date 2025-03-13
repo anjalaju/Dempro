@@ -1,4 +1,4 @@
-import 'package:dempro/card.dart';
+import 'package:dempro/circleava.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,8 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Cardd(),
+    return const MaterialApp(debugShowCheckedModeBanner: false,
+      home: CircleAva(),
+      // home: FieldText(),
     );
   }
 }
