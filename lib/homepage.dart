@@ -10,12 +10,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(drawer: const Drawer(
+      backgroundColor: Colors.pink,
+    ),
       appBar: AppBar(
         title: const Text("flex"),
         // centerTitle: true,
         backgroundColor: Colors.pink,
-        leading: const Icon(Icons.menu),
+        // leading: const Icon(Icons.menu),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
           IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
