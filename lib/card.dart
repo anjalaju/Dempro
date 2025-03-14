@@ -14,7 +14,7 @@ class _CarddState extends State<Cardd> {
       appBar: AppBar(
         backgroundColor: Colors.amber,
       ),
-      body: ListView(
+      body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(10.0),
