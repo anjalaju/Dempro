@@ -33,23 +33,26 @@ class _CircleAvaState extends State<CircleAva> {
                 ),
               ),
               // SizedBox(height: 20,),
-              CircleAvatar(backgroundColor: Colors.amber,
+              CircleAvatar(
+                backgroundColor: Colors.amber,
                 radius: 50,
-              child: Icon(Icons.abc,size: 40,),
+                child: Icon(
+                  Icons.abc,
+                  size: 40,
+                ),
               ),
               Padding(
                 padding: EdgeInsets.all(8.0),
-                child: CircleAvatar(backgroundColor: Colors.amber,
-                backgroundImage: AssetImage("images/Bus.jpg"),
+                child: CircleAvatar(
+                  backgroundColor: Colors.amber,
+                  backgroundImage: AssetImage("images/Bus.jpg"),
                   radius: 50,
                 ),
               ),
-              
             ],
           ),
         ),
       ),
-      
     );
   }
 }
