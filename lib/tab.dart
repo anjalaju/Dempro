@@ -54,29 +54,24 @@ class _TabbState extends State<Tabb> {
         bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'home',
-              backgroundColor: Colors.blue
-            ),
+                icon: Icon(Icons.home),
+                label: 'home',
+                backgroundColor: Colors.blue),
             BottomNavigationBarItem(
                 icon: Icon(Icons.search),
                 label: 'Search',
-                backgroundColor: Colors.blue
-                ),
+                backgroundColor: Colors.blue),
             BottomNavigationBarItem(
                 icon: Icon(Icons.settings),
                 label: 'Settings',
-              backgroundColor: Colors.blue
-
-                ),
+                backgroundColor: Colors.blue),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.person,
                   // color: Colors.amber,
                 ),
                 label: 'Profile',
-              backgroundColor: Colors.blue
-                ),
+                backgroundColor: Colors.blue),
           ],
           currentIndex: indexnum,
           onTap: (int index) {
@@ -87,7 +82,7 @@ class _TabbState extends State<Tabb> {
           showUnselectedLabels: true,
         ),
         drawer: Drawer(
-          backgroundColor: Colors.green,
+          backgroundColor: const Color.fromARGB(255, 167, 198, 213),
           child: ListView(
             children: [
               const UserAccountsDrawerHeader(
