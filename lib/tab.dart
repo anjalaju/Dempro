@@ -8,6 +8,13 @@ class Tabb extends StatefulWidget {
 }
 
 class _TabbState extends State<Tabb> {
+  int indexnum = 0;
+  List tablewidge = [
+    const Center(child: Text("Home")),
+    const Center(child: Text("Search")),
+    const Center(child: Text("Settings")),
+    const Center(child: Text("Profille")),
+  ];
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -33,12 +40,51 @@ class _TabbState extends State<Tabb> {
             indicatorSize: TabBarIndicatorSize.label,
             // isScrollable: true,
           ),
-          backgroundColor: const Color.fromARGB(255, 221, 214, 148),
-          title: const Center(child: Text("WhatsApp")),
+          backgroundColor: const Color.fromARGB(255, 167, 198, 213),
+          title: const Center(
+              child: Text(
+            "Aspire Lite",
+            style: TextStyle(fontStyle: FontStyle.italic),
+          )),
           actions: [
             IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
             IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
           ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'home',
+              backgroundColor: Colors.blue
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.search),
+                label: 'Search',
+                backgroundColor: Colors.blue
+                ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: 'Settings',
+              backgroundColor: Colors.blue
+
+                ),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.person,
+                  // color: Colors.amber,
+                ),
+                label: 'Profile',
+              backgroundColor: Colors.blue
+                ),
+          ],
+          currentIndex: indexnum,
+          onTap: (int index) {
+            setState(() {
+              indexnum = index;
+            });
+          },
+          showUnselectedLabels: true,
         ),
         drawer: Drawer(
           backgroundColor: Colors.green,
@@ -54,9 +100,7 @@ class _TabbState extends State<Tabb> {
               ListTile(
                 leading: const Icon(Icons.person),
                 title: const Text("Profile"),
-                onTap: () {
-
-                },
+                onTap: () {},
               ),
               const Divider(),
               ListTile(
@@ -72,7 +116,6 @@ class _TabbState extends State<Tabb> {
               ),
               const Divider(),
               ListTile(
-                
                 leading: const Icon(Icons.person),
                 title: const Text("signout"),
                 onTap: () {},
@@ -81,11 +124,12 @@ class _TabbState extends State<Tabb> {
             ],
           ),
         ),
-        body: const TabBarView(children: [
-          Center(child: Text("All")),
-          Center(child: Text("Unread")),
-          Center(child: Text("Favourites")),
-          Center(child: Text("Groups")),
+        body: TabBarView(children: [
+          const Center(child: Text("All")),
+          const Center(child: Text("Unread")),
+          const Center(child: Text("Favourites")),
+          const Center(child: Text("Groups")),
+          tablewidge.elementAt(indexnum)
         ]),
       ),
     );
