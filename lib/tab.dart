@@ -81,6 +81,16 @@ class _TabbState extends State<Tabb> {
           },
           showUnselectedLabels: true,
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          foregroundColor: Colors.blue,
+          backgroundColor: const Color.fromARGB(255, 167, 198, 213),
+          // mini: true,
+          tooltip: 'Add Groups',
+          child: const Icon(Icons.add),
+        ),
         drawer: Drawer(
           backgroundColor: const Color.fromARGB(255, 167, 198, 213),
           child: ListView(
