@@ -50,7 +50,7 @@ class _FieldTextState extends State<FieldText> {
 // labelText: "Username",
                 hintText: "Password",
                 border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(30),
                     borderSide: const BorderSide(color: Colors.red)),
                 focusedBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.red, width: 2),
@@ -58,25 +58,23 @@ class _FieldTextState extends State<FieldText> {
                 enabledBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.green, width: 2),
                 ),
-                // border: OutlineInputBorder()
               ),
               maxLength: 10,
             ),
             TextFormField(
-                // controller: passwordcontroller,
 
                 decoration: InputDecoration(
               fillColor: Colors.white,
               filled: true,
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(30),
               ),
               hintText: ("Enter Your Password"),
               prefixIcon: const Icon(Icons.lock),
             )),
             TextFormField(
               textAlign: TextAlign.center,
-              decoration: const InputDecoration(
+              decoration: const InputDecoration(  
                 filled: true,
                 fillColor: Colors.amber
               ),

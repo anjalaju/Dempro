@@ -40,7 +40,6 @@ class _TabbState extends State<Tabb> {
             indicatorSize: TabBarIndicatorSize.label,
             // isScrollable: true,
           ),
-          backgroundColor: const Color.fromARGB(255, 167, 198, 213),
           title: const Center(
               child: Text(
             "Aspire Lite",
