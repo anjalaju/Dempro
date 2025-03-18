@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "442032355185",
+    "project_id": "dempro-7db5d",
+    "storage_bucket": "dempro-7db5d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442032355185:android:64d44342bad365b210a8d0",
+        "android_client_info": {
+          "package_name": "com.example.dempro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP9uV0jzqxvXc5bnzTSNs6m2EEWMgLelQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
