@@ -9,7 +9,10 @@ class AddUserPage extends StatefulWidget {
 }
 
 class _AddUserPageState extends State<AddUserPage> {
-  final bloodGroups = ['A+', 'A-', 'B+', 'B-'];
+  // final bloodGroups = ['A+', 'A-', 'B+', 'B-'];
+  // String? selectedgroups;
+
+  final bloodGroups = {'A+', 'A-', 'B+', 'B-'};
   String? selectedgroups;
   @override
   Widget build(BuildContext context) {
@@ -80,13 +83,30 @@ class _AddUserPageState extends State<AddUserPage> {
             //     // maxLength: 10,
             //   ),
             // ),
+
+            // Padding(
+            //   padding: const EdgeInsets.all(8.0),
+            //   child: DropdownButtonFormField(
+            //     decoration: const InputDecoration(labelText:" select bloodGroups"),
+            //       items: bloodGroups
+            //           .map((e) => DropdownMenuItem(value: e,child: Text(e),
+            //           ))
+            //           .toList(),
+            //       onChanged: (val) {
+            //         selectedgroups = val;
+            //       }),
+            // ),
+
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: DropdownButtonFormField(
-                decoration: const InputDecoration(labelText:" select bloodGroups"),
+                  decoration:
+                      const InputDecoration(labelText: " select bloodGroups"),
                   items: bloodGroups
-                      .map((e) => DropdownMenuItem(value: e,child: Text(e),
-                      ))
+                      .map((e) => DropdownMenuItem(
+                            value: e,
+                            child: Text(e),
+                          ))
                       .toList(),
                   onChanged: (val) {
                     selectedgroups = val;
@@ -94,10 +114,17 @@ class _AddUserPageState extends State<AddUserPage> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(style: ButtonStyle(
-                minimumSize: WidgetStateProperty.all(const Size(double.infinity, 50)),
-                backgroundColor: WidgetStateProperty.all(Colors.pink),foregroundColor: WidgetStateProperty.all(Colors.white)),
-                onPressed: (){}, child: const Text("Submit",style: TextStyle(fontSize: 20),)),
+              child: ElevatedButton(
+                  style: ButtonStyle(
+                      minimumSize: WidgetStateProperty.all(
+                          const Size(double.infinity, 50)),
+                      backgroundColor: WidgetStateProperty.all(Colors.pink),
+                      foregroundColor: WidgetStateProperty.all(Colors.white)),
+                  onPressed: () {},
+                  child: const Text(
+                    "Submit",
+                    style: TextStyle(fontSize: 20),
+                  )),
             ),
           ],
         ),
