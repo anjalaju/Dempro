@@ -16,6 +16,7 @@ class _BloodHomePageState extends State<BloodHomePage> {
         title: const Text("Blood HomePage"),
         backgroundColor: const Color.fromARGB(255, 167, 198, 213),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
@@ -24,7 +25,7 @@ class _BloodHomePageState extends State<BloodHomePage> {
                 builder: (context) => const AddUserPage(),
               ));
         },
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
         foregroundColor: Colors.blue,
         backgroundColor: const Color.fromARGB(255, 167, 198, 213),
         tooltip: 'Add Groups',
