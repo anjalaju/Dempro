@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class AddUserPage extends StatefulWidget {
@@ -13,6 +14,14 @@ class _AddUserPageState extends State<AddUserPage> {
 
   final bloodGroups = {'A+', 'A-', 'B+', 'B-'};
   String? selectedgroups;
+  final CollectionReference donar =
+      FirebaseFirestore.instance.collection('donar');
+      TextEditingController donarName=TextEditingController();
+      TextEditingController donarnumber=TextEditingController();
+      void addDonar(){
+        final data={'name':donarName.text,'phone':donarnumber.text,'group':selectedgroups};
+        donar.add(data);
+      }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +36,7 @@ class _AddUserPageState extends State<AddUserPage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
+                controller: donarName,
                 decoration: InputDecoration(
                   labelText: "Donar Name",
                   hintText: "Enter your name",
@@ -46,6 +56,7 @@ class _AddUserPageState extends State<AddUserPage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
+                controller: donarnumber,
                 decoration: InputDecoration(
                   labelText: "Phone Number",
                   hintText: "Enter your Number",
@@ -119,7 +130,10 @@ class _AddUserPageState extends State<AddUserPage> {
                           const Size(double.infinity, 50)),
                       backgroundColor: WidgetStateProperty.all(Colors.pink),
                       foregroundColor: WidgetStateProperty.all(Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    addDonar();
+                    Navigator.pop(context);
+                  },
                   child: const Text(
                     "Submit",
                     style: TextStyle(fontSize: 20),
