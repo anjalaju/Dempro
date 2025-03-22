@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dempro/blood_donation/add_userpage.dart';
+import 'package:dempro/blood_donation/update.dart';
 import 'package:flutter/material.dart';
 
 class BloodHomePage extends StatefulWidget {
@@ -86,7 +87,15 @@ class _BloodHomePageState extends State<BloodHomePage> {
                         Row(
                           children: [
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {print(donarsnap.id);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                           UpdateUserPage(name: donarsnap['name'],phone: donarsnap['phone'],group: donarsnap['group'],
+                                           id:donarsnap.id),
+                                    ));
+                              },
                               icon: const Icon(Icons.edit),
                               iconSize: 20,
                               color: Colors.blue,

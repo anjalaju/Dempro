@@ -1,14 +1,51 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class AddUserPage extends StatefulWidget {
-  const AddUserPage({super.key});
+class UpdateUserPage extends StatefulWidget {
+  String name;
+  String phone;
+  String group;
+  String id;
+  UpdateUserPage(
+      {super.key,
+      required this.name,
+      required this.phone,
+      required this.group,
+      required this.id});
 
   @override
-  State<AddUserPage> createState() => _AddUserPageState();
+  State<UpdateUserPage> createState() => _UpdateUserPageState();
 }
 
-class _AddUserPageState extends State<AddUserPage> {
+class _UpdateUserPageState extends State<UpdateUserPage> {
+Future<void> update() async {
+  await donar.doc(widget.id).update({
+    'name': donarName.text, // Get updated value
+    'phone': donarnumber.text, // Get updated value
+    'group': selectedgroups, // Get updated value
+  }).then((value) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text("User Updated Successfully!"))
+    );
+    Navigator.pop(context); // Go back after update
+  }).catchError((error) {
+    print("Failed to update user: $error");
+  });
+}
+
+  @override
+  void initState() {
+    print('${widget.name}');
+    donarName = TextEditingController(text: widget.name);
+    donarnumber = TextEditingController(text: widget.phone);
+    selectedgroups = widget.group; // Initialize selected blood group
+    print('${widget.group}');
+    // print('${widget.id}');
+ 
+
+    // TODO: implement initState
+    super.initState();
+  }
   // final bloodGroups = ['A+', 'A-', 'B+', 'B-'];
   // String? selectedgroups;
 
@@ -16,22 +53,15 @@ class _AddUserPageState extends State<AddUserPage> {
   String? selectedgroups;
   final CollectionReference donar =
       FirebaseFirestore.instance.collection('donar');
-  TextEditingController donarName = TextEditingController();
-  TextEditingController donarnumber = TextEditingController();
-  void addDonar() {
-    final data = {
-      'name': donarName.text,
-      'phone': donarnumber.text,
-      'group': selectedgroups
-    };
-    donar.add(data);
-  }
-
+  // TextEditingController donarName = TextEditingController();
+  // TextEditingController donarnumber = TextEditingController();
+   late TextEditingController donarName;
+  late TextEditingController donarnumber;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Add Page"),
+        title: const Text("Update Page"),
         backgroundColor: const Color.fromARGB(255, 167, 198, 213),
       ),
       body: Padding(
@@ -136,11 +166,10 @@ class _AddUserPageState extends State<AddUserPage> {
                       backgroundColor: WidgetStateProperty.all(Colors.pink),
                       foregroundColor: WidgetStateProperty.all(Colors.white)),
                   onPressed: () {
-                    addDonar();
-                    Navigator.pop(context);
+                    update();
                   },
                   child: const Text(
-                    "Submit",
+                    "Update",
                     style: TextStyle(fontSize: 20),
                   )),
             ),
