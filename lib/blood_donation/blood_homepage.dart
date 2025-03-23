@@ -13,6 +13,9 @@ class BloodHomePage extends StatefulWidget {
 class _BloodHomePageState extends State<BloodHomePage> {
   final CollectionReference donar =
       FirebaseFirestore.instance.collection('donar');
+      void delete(docId){
+donar.doc(docId).delete(); 
+      }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,13 +90,16 @@ class _BloodHomePageState extends State<BloodHomePage> {
                         Row(
                           children: [
                             IconButton(
-                              onPressed: () {print(donarsnap.id);
+                              onPressed: () {
+                                // print(donarsnap.id);
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) =>
-                                           UpdateUserPage(name: donarsnap['name'],phone: donarsnap['phone'],group: donarsnap['group'],
-                                           id:donarsnap.id),
+                                      builder: (context) => UpdateUserPage(
+                                          name: donarsnap['name'],
+                                          phone: donarsnap['phone'].toString(),
+                                          group: donarsnap['group'],
+                                          id: donarsnap.id),
                                     ));
                               },
                               icon: const Icon(Icons.edit),
@@ -101,7 +107,9 @@ class _BloodHomePageState extends State<BloodHomePage> {
                               color: Colors.blue,
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                delete(donarsnap.id);
+                              },
                               icon: const Icon(Icons.delete),
                               iconSize: 20,
                               color: Colors.red,

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class UpdateUserPage extends StatefulWidget {
   String name;
   String phone;
@@ -18,20 +19,21 @@ class UpdateUserPage extends StatefulWidget {
 }
 
 class _UpdateUserPageState extends State<UpdateUserPage> {
-Future<void> update() async {
-  await donar.doc(widget.id).update({
-    'name': donarName.text, // Get updated value
-    'phone': donarnumber.text, // Get updated value
-    'group': selectedgroups, // Get updated value
-  }).then((value) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("User Updated Successfully!"))
-    );
-    Navigator.pop(context); // Go back after update
-  }).catchError((error) {
-    print("Failed to update user: $error");
-  });
-}
+  Future<void> update() async {
+    await donar.doc(widget.id).update({
+      'name': donarName.text, // Get updated value
+      'phone': donarnumber.text, // Get updated value
+      'group': selectedgroups, // Get updated value
+    }).then((value) {
+      // ignore: use_build_context_synchronously
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("User Updated Successfully!")));
+      // ignore: use_build_context_synchronously
+      Navigator.pop(context); // Go back after update
+    }).catchError((error) {
+      print("Failed to update user: $error");
+    });
+  }
 
   @override
   void initState() {
@@ -39,11 +41,9 @@ Future<void> update() async {
     donarName = TextEditingController(text: widget.name);
     donarnumber = TextEditingController(text: widget.phone);
     selectedgroups = widget.group; // Initialize selected blood group
+    print('${widget.phone}');
     print('${widget.group}');
-    // print('${widget.id}');
- 
-
-    // TODO: implement initState
+    print('${widget.id}');
     super.initState();
   }
   // final bloodGroups = ['A+', 'A-', 'B+', 'B-'];
@@ -55,7 +55,7 @@ Future<void> update() async {
       FirebaseFirestore.instance.collection('donar');
   // TextEditingController donarName = TextEditingController();
   // TextEditingController donarnumber = TextEditingController();
-   late TextEditingController donarName;
+  late TextEditingController donarName;
   late TextEditingController donarnumber;
   @override
   Widget build(BuildContext context) {
@@ -145,6 +145,7 @@ Future<void> update() async {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: DropdownButtonFormField(
+                  value: selectedgroups,
                   decoration:
                       const InputDecoration(labelText: " select bloodGroups"),
                   items: bloodGroups
