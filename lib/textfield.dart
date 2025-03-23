@@ -62,7 +62,6 @@ class _FieldTextState extends State<FieldText> {
               maxLength: 10,
             ),
             TextFormField(
-
                 decoration: InputDecoration(
               fillColor: Colors.white,
               filled: true,
@@ -74,10 +73,8 @@ class _FieldTextState extends State<FieldText> {
             )),
             TextFormField(
               textAlign: TextAlign.center,
-              decoration: const InputDecoration(  
-                filled: true,
-                fillColor: Colors.amber
-              ),
+              decoration:
+                  const InputDecoration(filled: true, fillColor: Colors.amber),
             )
           ],
         ),

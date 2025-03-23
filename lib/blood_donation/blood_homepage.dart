@@ -13,9 +13,10 @@ class BloodHomePage extends StatefulWidget {
 class _BloodHomePageState extends State<BloodHomePage> {
   final CollectionReference donar =
       FirebaseFirestore.instance.collection('donar');
-      void delete(docId){
-donar.doc(docId).delete(); 
-      }
+  void delete(docId) {
+    donar.doc(docId).delete();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
